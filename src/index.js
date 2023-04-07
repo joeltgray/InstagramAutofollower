@@ -55,7 +55,7 @@ const main = async () => {
 
       // Adding a sleep to simulate human-like behavior
       await sleep(10000);
-      followed + 1;
+      followed++;
       
       // Only follow 5 users at a time to avoid hitting the Instagram API rate limit
       if (followed == 5) {
