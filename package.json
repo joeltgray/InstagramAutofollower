@@ -1,0 +1,34 @@
+{
+  "name": "instagramautofollower",
+  "version": "1.0.0",
+  "description": "Allows users to search a hashtag on their feed, grab the posters primary key which is used to identify their profile uniquely, check their following status and automatically follow them if they are not currently following them.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeltgray/InstagramAutofollower.git"
+  },
+  "keywords": [
+    "instagram",
+    "autofollow",
+    "hashtag",
+    "follow",
+    "insta"
+  ],
+  "author": "Joel Gray",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joeltgray/InstagramAutofollower/issues"
+  },
+  "homepage": "https://github.com/joeltgray/InstagramAutofollower#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "instagram-private-api": "^1.45.3"
+  },
+  "engines" : { 
+    "npm" : "9.4.0",
+    "node" : "19.6.1"
+  }
+}
