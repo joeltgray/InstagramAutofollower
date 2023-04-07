@@ -29,7 +29,7 @@ const main = async () => {
 
     // Iterate over the posts in the hashtag feed
     const posts = await hashtagFeed.items();
-    const followed = 0
+    let followed = 0
 
     for (const post of posts) {
       console.log("Getting user info...");
@@ -57,8 +57,8 @@ const main = async () => {
       await sleep(10000);
       followed + 1;
       
-      // Only follow 10 users at a time to avoid hitting the Instagram API rate limit
-      if (followed == 10) {
+      // Only follow 5 users at a time to avoid hitting the Instagram API rate limit
+      if (followed == 5) {
         console.log(`Followed ${followed} users!`);
         process.exit(0);
       }
