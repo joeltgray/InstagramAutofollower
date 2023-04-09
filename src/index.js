@@ -11,6 +11,12 @@ async function sleep(millis) {
 }
 
 const main = async () => {
+
+    // Adding a random sleep to simulate human-like behavior
+    // This means that the script isn't following someone at the same time everytime
+    // assuming that you're running it hourly with systemd service
+    await sleep(Math.floor(Math.random() * (1200000 - 10000 + 1)) + 10000);
+
   try {
     //Login to Instagram
     console.log("\n\nLogging in...");
@@ -45,6 +51,7 @@ const main = async () => {
         const updatedFrendshipStatus = await ig.friendship.create(user.pk);
         if (updatedFrendshipStatus.following) {
           console.log(`Followed ${user.username}!`);
+          followed++;
         } else {
           // During mass following, Instagram will sometimes block the request, so just move on
           console.log(`Failed to follow ${user.username}! Moving on...`);
@@ -52,13 +59,9 @@ const main = async () => {
       } else {
         console.log(`Already following ${user.username}!`);
       }
-
-      // Adding a sleep to simulate human-like behavior
-      await sleep(10000);
-      followed++;
       
-      // Only follow 5 users at a time to avoid hitting the Instagram API rate limit
-      if (followed == 5) {
+      // Only follow 1 users at a time to avoid hitting the Instagram API rate limit
+      if (followed > 0) {
         console.log(`Followed ${followed} users!`);
         process.exit(0);
       }
