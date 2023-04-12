@@ -15,7 +15,10 @@ const main = async () => {
     // Adding a random sleep to simulate human-like behavior
     // This means that the script isn't following someone at the same time everytime
     // assuming that you're running it hourly with systemd service
-    await sleep(Math.floor(Math.random() * (1200000 - 10000 + 1)) + 10000);
+    sleepTime = Math.floor(Math.random() * (1200000 - 10000 + 1)) + 10000;
+    console.log("Waiting a random amount of time to simulate human-like behavior...")
+    console.log("Sleeping for " + Math.floor(sleepTime/1000) + " seconds, or " + (sleepTime/60000).toFixed(2) + " minutes")
+    await sleep(sleepTime);
 
   try {
     //Login to Instagram
