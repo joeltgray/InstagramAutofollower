@@ -31,7 +31,7 @@ const main = async () => {
 
     // Search for the latest posts with the hashtag provided
     console.log(`Getting posts with tag ${hashtag}...`);
-    const hashtagFeed = null;
+    let hashtagFeed = null;
     try {
       hashtagFeed = await ig.feed.tag(hashtag, {
         rankToken: ig.state.cookieUserId,
