@@ -31,10 +31,17 @@ const main = async () => {
 
     // Search for the latest posts with the hashtag provided
     console.log(`Getting posts with tag ${hashtag}...`);
-    const hashtagFeed = await ig.feed.tag(hashtag, {
-      rankToken: ig.state.cookieUserId,
-      ranked_content: true,
-    });
+    const hashtagFeed = null;
+    try {
+      hashtagFeed = await ig.feed.tag(hashtag, {
+        rankToken: ig.state.cookieUserId,
+        ranked_content: true,
+      });
+    } catch (error) {
+      console.log("Error getting posts with tag " + hashtag + "!");
+      console.log(error);
+    }
+
 
     // Iterate over the posts in the hashtag feed
     const posts = await hashtagFeed.items();
